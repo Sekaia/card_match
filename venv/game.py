@@ -56,14 +56,13 @@ class Game:
         else:
             for card in cards:
                 print(f"{card.location}: {card}")
-                return False
+            return False
 
     def check_win(self):
         for card in self.cards:
             if card.matched == False:
                 return False
-            else:
-                return True
+            return True
 
     def check_location(self, time):
         while True:
@@ -87,7 +86,7 @@ class Game:
                     self.create_grid()
                     game_running = False
                 else:
-                    input("Those cards are not a match. Press enter to continue")
+                    input("Those cards are a match! Press enter to continue")
         print("Game over")
 
 
