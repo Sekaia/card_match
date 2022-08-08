@@ -3,10 +3,19 @@ import random
 
 class Game:
     def __init__(self):
-        self.size = 4
-        self.card_options = ["Boo", "Bat", "Man", "Dog",
-                             "Cat", "Ham", "Lab", "Pot"]
-        self.columns = ['A', 'B', 'C', 'D']
+        self.size = 6
+        if self.size == 4:
+            self.columns = ['A', 'B', 'C', 'D']
+            self.card_options = ["Boo", "Bat", "Man", "Dog",
+                                 "Cat", "Ham", "Lab", "Pot"]
+        elif self.size == 6:
+            self.columns = ['A', 'B', 'C', 'D', 'E', 'F']
+            self.card_options = ["Boo", "Bat", "Man", "Dog",
+                                 "Cat", "Ham", "Lab", "Pot", "Run"]
+        elif self.size == 8:
+            self.columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+            self.card_options = ["Boo", "Bat", "Man", "Dog", "Zap",
+                                 "Cat", "Ham", "Lab", "Pot", "Run"]
         self.cards = []
         self.locations = []
         for column in self.columns:
