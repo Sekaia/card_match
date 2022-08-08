@@ -44,6 +44,10 @@ class Game:
             print_row += ' | '.join(get_row) + ' |'
             print(print_row)
 
+    def add_guess(self):
+        global guesses
+        guesses += 1
+
     def check_match(self, loc1, loc2):
         cards = []
         for card in self.cards:
@@ -73,6 +77,8 @@ class Game:
                 print("That's not a valid location. It should look like this: A1")
 
     def start_game(self):
+        global guesses
+        guesses = 0
         game_running = True
         print("Memory Game")
         self.set_cards()
@@ -80,6 +86,7 @@ class Game:
             self.create_grid()
             guess1 = self.check_location('first')
             guess2 = self.check_location('second')
+            self.add_guess()
             if self.check_match(guess1, guess2):
                 if self.check_win():
                     print("You win!")
@@ -87,7 +94,8 @@ class Game:
                     game_running = False
                 else:
                     input("Those cards are a match! Press enter to continue")
-        print("Game over")
+            print(f"Guesses: {guesses}")
+        print(f"Game over, it took you {guesses} guesses.")
 
 
 if __name__ == "__main__":
